@@ -6,13 +6,13 @@ namespace RestClient
 {
     public class RestClient
     {
-        private HttpWebRequest BuildRequest(string endpoint, HttpMethod method)
+        public static HttpWebRequest BuildRequest(string endpoint, HttpMethod method = HttpMethod.GET)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(endpoint);
             request.Method = method.ToString();
             return request;
         }
-        
+
         public string SendRequest(HttpWebRequest request)
         {
             HttpWebResponse response = null;
